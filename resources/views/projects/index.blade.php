@@ -29,8 +29,8 @@
                             <td>{{ $project->description }}</td>
                             <td>{{ $project->created_at }}</td>
                             <td> 
-                                <a class="btn btn-success" href="/projects/update?id={{ $project->id }}">Edit</a>
-                                <a class="btn btn-danger" href="/projects/delete?id={{ $project->id }}">Delete</a>
+                                <a class="btn btn-success" href="/projects/{{ $project->id }}/edit">Edit</a>
+                                <a class="btn btn-danger" href="/projects/{{ $project->id }}">Delete</a>
                              </td>
                         </tr>
                     @endforeach
