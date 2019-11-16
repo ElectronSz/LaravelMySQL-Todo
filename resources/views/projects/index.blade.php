@@ -20,7 +20,8 @@
                 <th>Title</th>
                 <th>Description</th>
                 <th>Created At</th>
-                <th>Action</th>
+                <th>Update</th>
+                <th>Destroy</th>
                 <tbody>
                     @foreach ($projects as $project)
                         <tr>
@@ -29,8 +30,15 @@
                             <td>{{ $project->description }}</td>
                             <td>{{ $project->created_at }}</td>
                             <td> 
-                                <a class="btn btn-success" href="/projects/{{ $project->id }}/edit">Edit</a>
-                                <a class="btn btn-danger" href="/projects/{{ $project->id }}">Delete</a>
+                                <a class="btn btn-success pull-left" href="/projects/{{ $project->id }}/edit">Edit</a>
+                                
+                             </td>
+                             <td>
+                                    <form action="/projects/{{ $project->id }}" method="post">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
                              </td>
                         </tr>
                     @endforeach
