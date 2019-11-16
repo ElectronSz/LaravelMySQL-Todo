@@ -97,21 +97,15 @@ class ProjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function delete(Project $project)
-     {
-        $project = Project::find($project->id);
-
-        return view('projects.delete', compact('project'));
-     }
 
     public function destroy(Project $project)
     {
 
        
-        // $project = Project::find($project->id);
+        $project = Project::find($project->id);
                 
-        // $project->delete();
+        $project->delete();
         
-        // return redirect('/projects');
+        return redirect('/projects');
     }
 }
