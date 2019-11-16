@@ -39,8 +39,8 @@ class ProjectsController extends Controller
     {
         $project = new Project();
 
-        $project->title = request('title');
-        $project->description = request('description');
+        $project->title = $request->title;
+        $project->description = $request->description;
  
         $project->save();
  
@@ -101,7 +101,6 @@ class ProjectsController extends Controller
     public function destroy(Project $project)
     {
 
-       
         $project = Project::find($project->id);
                 
         $project->delete();
